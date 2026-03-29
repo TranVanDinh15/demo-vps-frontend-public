@@ -33,5 +33,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ env.REPO_NAME }}:latest
+            ghcr.io/${{ env.REPO_NAME }}:v1.0.0
             ghcr.io/${{ env.REPO_NAME }}:${{ github.sha }}
