@@ -29,3 +29,8 @@ jobs:
       # Bước 3: Kiểm tra 
       - name: Step 3 Check if Node.js is installed
         run: pwd && ls -a && node -v
+      
+      - name: Dung Secret cua Repo
+        run: echo "Secret la ${{ secrets.MY_SECRET_NAME }}"
+      - name: Dung Variable cua Repo
+        run: echo "Variable la ${{ vars.MY_VARIABLE_NAME }}"
