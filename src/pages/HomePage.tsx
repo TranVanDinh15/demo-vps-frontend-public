@@ -5,7 +5,7 @@ function HomePage() {
   return (
     <div className="home">
       <section className="hero">
-        <div className="hero-badge">Production-ready demo DinhPro</div>
+        <div className="hero-badge">Production-ready demo DinhPro Success</div>
         <h1 className="hero-title">
           Full-Stack App built with
           <span className="hero-highlight"> Laravel + React + MongoDB</span>
