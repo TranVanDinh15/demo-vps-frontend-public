@@ -54,7 +54,18 @@ jobs:
           script: |
             echo "${{ secrets.PAT_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             cd /srv/m05-fullstack-laravel-react-github-action
+            # 1. Kéo tất cả image mới về
             docker compose pull
-            docker rm -f frontend || true
+            
+            # 2. Dọn sạch cụm cũ (Xóa sạch container, network của project này)
+            # Dùng || true để nếu lần đầu chạy không có gì để down thì vẫn không báo lỗi
+            docker compose down || true
+            
+            # 3. Ép xóa thủ công các container "cứng đầu" nếu lỡ tay chạy docker run ngoài luồng
+            docker rm -f frontend backend mongodb caddy || true
+            
+            # 4. Khởi động lại toàn bộ cụm mới
             docker compose up -d --force-recreate --remove-orphans
+            
+            # 5. Dọn dẹp rác (image cũ không tag)
             docker image prune -f
