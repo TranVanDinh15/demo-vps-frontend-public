@@ -74,7 +74,7 @@ function HomePage() {
         <div className="feature-list">
           <div className="feature-item">
             <span className="feature-check">&#10003;</span>
-            <span>RESTful API with versioning (api/v1) cc</span>
+            <span>RESTful API with versioning (api/v1)</span>
           </div>
           <div className="feature-item">
             <span className="feature-check">&#10003;</span>
